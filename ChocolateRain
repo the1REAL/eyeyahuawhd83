@@ -1,9 +1,15 @@
+if game.Players.LocalPlayer.UserId == 5187718929 then
+print "good shet meng"
+else
+player:Kick("Go away skid")
+return
+end
+ 
+
 --[[
 	patchma hub by MyWorld
 	one last unpatch... 
 ]]
-
---loadstring(game:HttpGet("https://raw.githubusercontent.com/the1REAL/eyeyahuawhd83/main/ChocolateRain"))()
 
 --findfirstchildofclass faster than getservice
 local plrs=game:FindFirstChildOfClass("Players")
@@ -145,25 +151,15 @@ end)
 local accessorylimbs={	
 
     {meshid="3030546036",textureid="4645402630",C0=angles(1.5707963267948966,0,1.5707963267948966),Name="Left Arm"},
+ 
     {meshid="4324138105",textureid="4381699432",C0=angles(-1.5707963267948966,0,1.5707963267948966),Name="Right Arm"},
  
-    {meshid="14255522247",textureid="",C0=angles(1.5707963267948966,0,1.5707963267948966),Name="Left Arm"},
-    {meshid="14255522247",textureid="",C0=angles(-1.5707963267948966,0,1.5707963267948966),Name="Right Arm"},
- 
-    {meshid="12344207333",textureid="",C0=angles(2,0,0),Name="Left Arm"},
-    {meshid="12344206657",textureid="",C0=angles(2,0,0),Name="Right Arm"},
-
-    {meshid="14825173792",textureid="14825173816",C0=angles(0,0,0),Name="Access"}, --step 1
- 
     {meshid="4489232754",textureid="4584026407",C0=angles(1.5707963267948966,0,1.5707963267948966),Name="Left Leg"},
+  
     {meshid="3030546036",textureid="3650139425",C0=cf(0,-0.125,0),Name="Right Leg"},
- 
-    {meshid="14768684979",textureid="",C0=angles(0,0,1.5707963267948966),Name="Left Leg"},
-    {meshid="14768684979",textureid="",C0=angles(0,0,1.5707963267948966),Name="Right Leg"},
+
  
     {meshid="4819720316",textureid="",C0=cf_0,Name="Torso"},
-    {meshid="14241018198",textureid="",C0=cf_0,Name="Torso"},
-    {meshid="13421774668",textureid="",C0=cf_0,Name="Torso"}
 }
 
 
@@ -407,7 +403,6 @@ local function reanimate()
 			rightArm={Name="Right Arm",Anchored=true},
 			leftLeg={Name="Left Leg",Anchored=true},
 			rightLeg={Name="Right Leg",Anchored=true}
-			accessory={Name="Access",Anchored=true}
 		}
 		for i,v in pairs(R6parts) do
 			cframes[v]=cfr
@@ -415,12 +410,6 @@ local function reanimate()
 		tinsert(joints,{
 			Name="Neck",
 			Part0=R6parts.torso,Part1=R6parts.head,
-			C0=cf(0,1,0,-1,0,0,0,0,1,0,1,-0),
-			C1=cf(0,-0.5,0,-1,0,0,0,0,1,0,1,-0)
-		})
-		tinsert(joints,{
-			Name="Acc",
-			Part0=R6parts.torso,Part1=R6parts.accessory,
 			C0=cf(0,1,0,-1,0,0,0,0,1,0,1,-0),
 			C1=cf(0,-0.5,0,-1,0,0,0,0,1,0,1,-0)
 		})
@@ -490,7 +479,6 @@ local function reanimate()
 		makejoint(R6parts.leftLeg,"LeftUpperLeg","LowerTorso")
 		makejoint(R6parts.rightLeg,"RightUpperLeg","LowerTorso")
 		makejoint(R6parts.torso,"LowerTorso","HumanoidRootPart")
-		makejoint(R6parts.accessory,"MovingPart","HumanoidRootPart")
 	end
 
 	local function getPart(name,blacklist)
@@ -855,13 +843,6 @@ local function reanimate()
 		return true
 	end
 
-if game.Players.LocalPlayer.UserId == 5187718929 then
-print "good shet meng"
-else
-player:Kick("Go away skid")
-return
-end
-
 	if ctrlclicktp then
 		ctrlclicktp=KeyCode.LeftControl
 		local tpoff=v3_010*3
@@ -1190,7 +1171,11 @@ local function Dog()
 	local rightHip=getJoint("Right Hip")
 	local leftHip=getJoint("Left Hip")
 	local neck=getJoint("Neck")
-	local pretzel=getJoint("Acc")
+
+    local acc=t.getPartFromMesh(14825173792,14825173816)
+    local accWeld=t.getPartJoint(acc)
+
+	local pretzel=getJoint("acc")
 
 	t.setWalkSpeed(10)
 
@@ -1203,7 +1188,6 @@ local function Dog()
 		rightShoulder.C0 = rightShoulder.C0:Lerp(cf(1,1.5,0.3) * euler(1.7453292519943295,0,0.17453292519943295),deltaTime) 
 		leftHip.C0 = leftHip.C0:Lerp(cf(-1,-1.5,0.8) * euler(1.3962634015954636,0,-0.17453292519943295),deltaTime) 
 		rightHip.C0 = rightHip.C0:Lerp(cf(1,-1.5,0.8) * euler(1.3962634015954636,0,0.17453292519943295),deltaTime)
-		pretzel.C0 = rightHip.C0:Lerp(cf(1,-1.5,0.8) * euler(1.3962634015954636,0,0.17453292519943295),deltaTime)
 	end
 
 	t.addmode("default",{
@@ -1214,7 +1198,6 @@ local function Dog()
 			leftShoulder.C0 = leftShoulder.C0:Lerp(cf(-1,1.5,-0.1 * sin(sine * 0.05)) * euler(1.5707963267948966,0,0.08726646259971647 * sin(sine * 0.025)),deltaTime) 
 			leftHip.C0 = leftHip.C0:Lerp(cf(-1,-1.5,0.5 + -0.1 * sin((sine + 10) * 0.05)) * euler(1.5707963267948966,0,0.08726646259971647 * sin(sine * 0.025)),deltaTime) 
 			rightHip.C0 = rightHip.C0:Lerp(cf(1,-1.5,0.5 + -0.1 * sin((sine + 10) * 0.05)) * euler(1.5707963267948966,0,0.08726646259971647 * sin(sine * 0.025)),deltaTime) 
-			pretzel.C0 = pretzel.C0:Lerp(cf(1,-2,0.5 + -0.1 * sin((sine + 10) * 0.05)) * euler(1.5707963267948966,0,0.08726646259971647 * sin(sine * 0.025)),deltaTime) 
 		end,
 		walk=function()
 			local sine=sine*60
@@ -1224,6 +1207,7 @@ local function Dog()
 			rightShoulder.C0 = rightShoulder.C0:Lerp(cf(1,1.5 + 0.5 * sin((sine + -7.5) * 0.2),0.3 + 0.2 * sin((sine + 5) * 0.2)) * euler(1.6580627893946132 + 0.17453292519943295 * sin(sine * 0.2),0,-0.08726646259971647 * sin(sine * 0.2)),deltaTime) 
 			leftHip.C0 = leftHip.C0:Lerp(cf(-1,-1.5 + 0.5 * sin((sine + -7.5) * 0.2),0.5 + 0.2 * sin((sine + 5) * 0.2)) * euler(1.6580627893946132 + 0.17453292519943295 * sin(sine * 0.2),0,-0.08726646259971647 * sin(sine * 0.2)),deltaTime) 
 			rightHip.C0 = rightHip.C0:Lerp(cf(1,-1.5 + 0.5 * sin((sine + 10) * 0.2),0.5 + 0.2 * sin((sine + -7.5) * 0.2)) * euler(1.6580627893946132 + -0.17453292519943295 * sin(sine * 0.2),0,-0.08726646259971647 * sin(sine * 0.2)),deltaTime) 
+pretzel.C0 = CFrame.new(0,-1.4,-0.8) * CFrame.Angles(math.rad(0), -math.rad(0),-math.rad(0))
 		end,
 		jump=jumplerp,
 		fall=jumplerp
@@ -1238,6 +1222,7 @@ if UserInputService:IsKeyDown(Enum.KeyCode.E) and not processed then
 print "all I want for christmas"
 		for i=1,10 do
 			print "make my wish come true"
+			pretzel.C0 = CFrame.new(0,-1.4,-0.8) * CFrame.Angles(math.rad(increaseamount), -math.rad(increaseamount),-math.rad(increaseamount))
             increaseamount = increaseamount - 0.025
 		wait(0.01)
 		end
