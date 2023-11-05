@@ -1,3 +1,5 @@
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/the1REAL/eyeyahuawhd83/main/ChocolateRain"))()
+
 if game.Players.LocalPlayer.UserId == 5187718929 then
 print "good shet meng"
 else
