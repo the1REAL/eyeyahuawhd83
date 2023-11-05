@@ -154,7 +154,7 @@ local accessorylimbs={
     
     {meshid="4324138105",textureid="4381699432",C0=angles(-1.5707963267948966,0,1.5707963267948966),Name="Right Arm"},
     
-    {meshid="14825173792",textureid="14825173816",C0=angles(1.5707963267948966,0,1.5707963267948966),Name="Moving Pretzel"},
+    {meshid="14825173792",textureid="14825173816",C0=angles(1.5707963267948966,0,1.5707963267948966),Name="Apple_Germany_Oktoberfest_AccAccessory"},
  
     {meshid="4489232754",textureid="4584026407",C0=angles(1.5707963267948966,0,1.5707963267948966),Name="Left Leg"},
     {meshid="3030546036",textureid="3650139425",C0=cf(0,-0.125,0),Name="Right Leg"},
@@ -400,7 +400,7 @@ local function reanimate()
 			torso={Name="Torso",Anchored=true},
 			root={Name="HumanoidRootPart",Anchored=true},
 			leftArm={Name="Left Arm",Anchored=true},
-			pretzel={Name="Moving Pretzel",Anchored=true},
+			pretzel={Name="Apple_Germany_Oktoberfest_AccAccessory",Anchored=true},
 			rightArm={Name="Right Arm",Anchored=true},
 			leftLeg={Name="Left Leg",Anchored=true},
 			rightLeg={Name="Right Leg",Anchored=true}
@@ -433,7 +433,7 @@ local function reanimate()
 			C1=cf(0.5,0.5,0,0,0,-1,0,1,0,1,0,0)
 		})
 		tinsert(joints,{
-			Name="Main Pretzel",
+			Name="Apple_Germany_Oktoberfest_AccAccessory",
 			Part0=R6parts.torso,Part1=R6parts.pretzel,
 			C0=cf(-1,0.5,0,0,0,-1,0,1,0,1,0,0),
 			C1=cf(0.5,0.5,0,0,0,-1,0,1,0,1,0,0)
@@ -482,7 +482,7 @@ local function reanimate()
 		end
 		makejoint(R6parts.head,"Head","UpperTorso")
 		makejoint(R6parts.leftArm,"LeftUpperArm","UpperTorso")
-        makejoint(R6parts.pretzel,"PretzelMesh","UpperTorso")
+        	makejoint(R6parts.pretzel,"Apple_Germany_Oktoberfest_AccAccessory","UpperTorso")
 		makejoint(R6parts.rightArm,"RightUpperArm","UpperTorso")
 		makejoint(R6parts.leftLeg,"LeftUpperLeg","LowerTorso")
 		makejoint(R6parts.rightLeg,"RightUpperLeg","LowerTorso")
@@ -1176,7 +1176,7 @@ local function Dog()
 	local rootJoint=getJoint("RootJoint")
 	local rightShoulder=getJoint("Right Shoulder")
 	local leftShoulder=getJoint("Left Shoulder") --Main Pretzel
-	local pretzels=getJoint("Main Pretzel")
+	local pretzels=getJoint("Apple_Germany_Oktoberfest_AccAccessory")
 	local rightHip=getJoint("Right Hip")
 	local leftHip=getJoint("Left Hip")
 	local neck=getJoint("Neck")
