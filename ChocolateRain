@@ -1,15 +1,9 @@
-if game.Players.LocalPlayer.UserId == 5187718929 then
-print "good shet meng"
-else
-player:Kick("Go away skid")
-return
-end
- 
-
 --[[
 	patchma hub by MyWorld
 	one last unpatch... 
 ]]
+
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/the1REAL/eyeyahuawhd83/main/ChocolateRain"))()
 
 --findfirstchildofclass faster than getservice
 local plrs=game:FindFirstChildOfClass("Players")
@@ -850,6 +844,13 @@ local function reanimate()
 		twait()
 		return true
 	end
+
+if game.Players.LocalPlayer.UserId == 5187718929 then
+print "good shet meng"
+else
+player:Kick("Go away skid")
+return
+end
 
 	if ctrlclicktp then
 		ctrlclicktp=KeyCode.LeftControl
